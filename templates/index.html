@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易计算器 - Flask版</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- 计算器主体 -->
+        <div class="calculator">
+            <!-- 显示屏 -->
+            <div class="display">
+                <div class="previous-operand"></div>
+                <div class="current-operand">0</div>
+            </div>
+            
+            <!-- 按钮区 -->
+            <div class="buttons">
+                <button class="span-two function" data-action="clear">AC</button>
+                <button class="function" data-action="delete">DEL</button>
+                <button class="operator" data-action="operation" data-value="÷">÷</button>
+                
+                <button data-number>7</button>
+                <button data-number>8</button>
+                <button data-number>9</button>
+                <button class="operator" data-action="operation" data-value="×">×</button>
+                
+                <button data-number>4</button>
+                <button data-number>5</button>
+                <button data-number>6</button>
+                <button class="operator" data-action="operation" data-value="-">-</button>
+                
+                <button data-number>1</button>
+                <button data-number>2</button>
+                <button data-number>3</button>
+                <button class="operator" data-action="operation" data-value="+">+</button>
+                
+                <button class="span-two" data-number>0</button>
+                <button data-number>.</button>
+                <button class="operator equals" data-action="compute">=</button>
+            </div>
+        </div>
+        
+        <!-- 历史记录面板 -->
+        <div class="history-panel">
+            <div class="history-header">
+                <h3>📋 计算历史</h3>
+                <button id="clear-history">清空</button>
+            </div>
+            <div class="history-list" id="history-list">
+                <!-- 动态填充 -->
+                <div class="history-empty">暂无记录</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

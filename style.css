@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.calculator {
+    width: 320px;
+    background: #000;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* 显示屏 */
+.display {
+    text-align: right;
+    padding: 20px 10px;
+    margin-bottom: 15px;
+    color: white;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.previous-operand {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.6);
+    min-height: 24px;
+    word-break: break-all;
+    margin-bottom: 5px;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+    font-weight: 300;
+    word-break: break-all;
+    transition: font-size 0.2s;
+}
+
+.current-operand.long-number {
+    font-size: 1.8rem;
+}
+
+/* 按钮网格 */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    background: #333;
+    color: white;
+    outline: none;
+    user-select: none;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:active {
+    transform: scale(0.95);
+    opacity: 0.7;
+}
+
+/* 运算符按钮样式 */
+.operator {
+    background: #ff9500;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.operator.equals {
+    background: #ff9500;
+}
+
+/* 功能键样式 */
+.function {
+    background: #a5a5a5;
+    color: black;
+    font-weight: 500;
+}
+
+/* 跨两列的按钮 */
+.span-two {
+    grid-column: span 2;
+    border-radius: 30px;
+    text-align: left;
+    padding-left: 25px;
+}
+
+/* 键盘按下时的视觉反馈 */
+button.key-pressed {
+    transform: scale(0.95);
+    opacity: 0.7;
+}
+
+/* 响应式设计 */
+@media (max-width: 400px) {
+    .calculator {
+        width: 90vw;
+        padding: 15px;
+    }
+    
+    button {
+        height: 55px;
+        font-size: 1.2rem;
+    }
+    
+    .current-operand {
+        font-size: 2.2rem;
+    }
+}
